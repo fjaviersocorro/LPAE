@@ -1,6 +1,19 @@
+
+
 page-home {
     
-    .ion-navbar{
-        color: #eea300
+   
+    .toolbar-title-md{
+        position: absolute;
+        text-align: center;
+        color:blue;
     }
+    .content-md{
+        background-image: url('../../assets/imgs/lascanteras.jpg');
+        background-size:cover; 
+    }
+    .card{
+        background: rgba(rgb(255, 255, 255),0.8);
+    }
+    
 }

@@ -1,20 +1,47 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon color="secondary" name="menu"></ion-icon>
     </button>
-    <ion-title>LPAEvents</ion-title>
-
     <ion-buttons end>
-      <button *ngIf="true" color = "primary" ion-button><ion-icon name="contact"></ion-icon></button>
+      <button *ngIf="true" color = "secondary" ion-button><ion-icon name="contact"></ion-icon></button>
     </ion-buttons>
+
+    <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+
+    
 
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+  
   <ion-card  (click)="goToDetail()">
-    <img src="../../assets/imgs/mountains0.jpg"/>
+    <img src="../../assets/imgs/islandjam.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Island Jam GC
+        </ion-card-title> 2018
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card  (click)="goToDetail()">
+    <img src="../../assets/imgs/sdm.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Salón del Manga GC
+        </ion-card-title>
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card  (click)="goToDetail()">
+    <img src="../../assets/imgs/lascanteras1.jpg"/>
     <ion-card-content>
       <ion-card-title>
         Nine Inch Nails Live

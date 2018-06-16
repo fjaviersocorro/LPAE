@@ -20,6 +20,7 @@ export class MapsPage {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  public radius:number;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -32,9 +33,10 @@ export class MapsPage {
 
   ngOnInit() {
     //set google maps defaults
-    this.zoom = 12;
-    this.latitude = 28.1327752;
-    this.longitude = -15.4360964;
+    this.zoom = 17;
+    this.latitude = 28.1406;
+    this.longitude = -15.430498;
+    //this.radius =1000;
 
     //create search FormControl
     this.searchControl = new FormControl();
@@ -45,8 +47,9 @@ export class MapsPage {
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["establishment"]
+        types: ["establishment"],
       });
+      
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
@@ -60,7 +63,8 @@ export class MapsPage {
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
+          //this.radius = 1000;
+          this.zoom = 17;
         });
       });
     });
@@ -71,6 +75,7 @@ export class MapsPage {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
+        //this.radius=1000;
         this.zoom = 12;
       });
     }

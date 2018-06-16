@@ -5,20 +5,66 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>LPAEvents</ion-title>
-
-    <ion-buttons end>
-      <button *ngIf="true" color = "primary" ion-button><ion-icon name="contact"></ion-icon></button>
-    </ion-buttons>
-
-  </ion-navbar>
-</ion-header>
-
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon color="secondary" name="menu"></ion-icon>
+      </button>
+      <ion-buttons end>
+        <button *ngIf="true" color = "secondary" ion-button><ion-icon name="contact"></ion-icon></button>
+      </ion-buttons>
+  
+      <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+    </ion-navbar>
+  </ion-header>
 
 <ion-content padding>
-  <button *ngIf="true" color = "primary" ion-button (click)="goToMaps()"><ion-icon name="pin"></ion-icon></button>
+    <ion-card>
+        <img src="../../assets/imgs/sdm.jpg" />
+        <ion-card-content>
+          <div>
+            <ion-card-title color="secondary" >
+                  Salón del Manga <BUtton></BUtton>
+            </ion-card-title>
+            <button *ngIf="true" color = "primary" ion-button (click)="goToMaps()">
+              <ion-icon name="pin" color="secondary"></ion-icon>
+            </button>
+           
+          </div>
+          
+          <ion-card-title>
+            Infecar
+          </ion-card-title>
+          
+          <p>
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience.
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+            The most popular industrial group ever, and largely
+            responsible for bringing the music to a mass audience
+          </p>
+        </ion-card-content>
+        
+      </ion-card>
+ 
 </ion-content>
