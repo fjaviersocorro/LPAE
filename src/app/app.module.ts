@@ -4,26 +4,48 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { EventsPage } from '../pages/events/events';
+import { EventsDetailPage } from '../pages/events-detail/events-detail';
+import { LoginPage } from '../pages/login/login';
+import { ProfilePage } from '../pages/profile/profile';
+import { AgmCoreModule } from '@agm/core';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MapsPage } from '../pages/maps/maps';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    EventsPage,
+    EventsDetailPage,
+    LoginPage,
+    ProfilePage,
+    MapsPage
+ 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDS-Jm_Qp3vce6Mr3Eh1KbOnLhKkvZZeOg',
+      libraries: ["places"],
+    }),
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    EventsPage,
+    EventsDetailPage,
+    LoginPage,
+    ProfilePage,
+    MapsPage
+ 
   ],
   providers: [
     StatusBar,
