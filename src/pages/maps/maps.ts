@@ -1,8 +1,8 @@
-import { Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
-import { GoogleMap, GoogleSymbol } from '@agm/core/services/google-maps-types';
+
 /**
  * Generated class for the MapsPage page.
  *
@@ -21,6 +21,8 @@ export class MapsPage {
   public searchControl: FormControl;
   public zoom: number;
   public radius:number;
+  public map;
+  
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -30,12 +32,14 @@ export class MapsPage {
     private ngZone: NgZone,
     public navCtrl: NavController, public navParams: NavParams
   ) {}
-
+ 
+  
   ngOnInit() {
     //set google maps defaults
+     
     this.zoom = 17;
-    this.latitude = 28.1406;
-    this.longitude = -15.430498;
+    this.latitude = this.navParams.data.latitude;
+    this.longitude = this.navParams.data.longitude;
     //this.radius =1000;
 
     //create search FormControl
@@ -49,7 +53,15 @@ export class MapsPage {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["establishment"],
       });
-      
+      var geolocation = {
+        lat: this.latitude,
+        lng: this.longitude
+      };
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: 500
+      });
+      autocomplete.setBounds(circle.getBounds());
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result

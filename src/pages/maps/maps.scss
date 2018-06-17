@@ -1,8 +1,21 @@
 page-maps {
     agm-map {
-        height: 35em;   
+        height:90%;
+        border-color:blue; 
     }
     input{
-        width: auto;
+        color:blue;
+        width: 80%;
+        height:20%;
     }
+    input::placeholder{
+        color:darkblue;
+    }
+
+    .form-group{
+        text-align: center;
+    }
+    // #map {
+	// 	height: 100%;
+	// }
 }

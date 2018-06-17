@@ -14,7 +14,22 @@
   </ion-navbar>
 </ion-header>
 
+
+
+
 <ion-content>
+  <ion-card *ngFor="let event of events" (click)="goToDetail(event)">
+    <img src="../../assets/imgs/islandjam.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{event.title}}
+        </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<!-- <ion-content>
   
   <ion-card  (click)="goToDetail()">
     <img src="../../assets/imgs/islandjam.jpg"/>
@@ -41,7 +56,7 @@
     </ion-card-content>
   </ion-card>
   <ion-card  (click)="goToDetail()">
-    <img src="../../assets/imgs/lascanteras1.jpg"/>
+    <img src="../../assets/imgs/fdc.jpg"/>
     <ion-card-content>
       <ion-card-title>
         Nine Inch Nails Live
@@ -52,5 +67,5 @@
       </p>
     </ion-card-content>
   </ion-card>
-</ion-content>
+</ion-content> -->
 

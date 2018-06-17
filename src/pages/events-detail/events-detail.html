@@ -13,55 +13,30 @@
         <button *ngIf="true" color = "secondary" ion-button><ion-icon name="contact"></ion-icon></button>
       </ion-buttons>
   
-      <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+      <ion-title>{{event.title}}</ion-title>
     </ion-navbar>
   </ion-header>
 
-<ion-content padding>
+<ion-content >
     <ion-card>
         <img src="../../assets/imgs/sdm.jpg" />
         <ion-card-content>
           <div>
             <ion-card-title color="secondary" >
-                  Salón del Manga <BUtton></BUtton>
+                  {{event.title}} <BUtton></BUtton>
             </ion-card-title>
-            <button *ngIf="true" color = "primary" ion-button (click)="goToMaps()">
+            <button *ngIf="true" color = "primary" ion-button (click)="goToMaps(event)">
               <ion-icon name="pin" color="secondary"></ion-icon>
             </button>
            
           </div>
           
           <ion-card-title>
-            Infecar
+            {{event.location}}
           </ion-card-title>
           
           <p>
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience.
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
-            The most popular industrial group ever, and largely
-            responsible for bringing the music to a mass audience
+            {{event.content}}
           </p>
         </ion-card-content>
         

@@ -1,0 +1,16 @@
+page-calendar {
+    
+    
+    ion-calendar .calendar-row .today{
+        background: blue;
+    }
+    .row[justify-content-center]{
+        background:#fac92c;
+    }
+    ion-grid{
+        background: white;
+    }
+    ion-calendar .calendar-row .eventBlip , .calendar-row .select, .calendar-row .today{
+        background:blue;
+    }
+}
