@@ -1,0 +1,89 @@
+<!--
+  Generated template for the FavoritesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="primary" id="top">
+      <button ion-button menuToggle>
+        <ion-icon color="secondary" name="menu"></ion-icon>
+      </button>
+     
+      <ion-title color="secondary">LPA<ion-icon color="secondary" name="pin" start></ion-icon>Events</ion-title>
+  
+    </ion-navbar>
+  </ion-header>
+  
+  
+  
+  
+  <ion-content>
+    <ion-card *ngFor="let event of events" (click)="goToDetail(event)">
+      <img src="{{event.image}}"/>
+      <ion-card-content>
+        <ion-card-title>
+          {{event.title}}
+          </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    <!-- <ion-card *ngFor="let event of events | category : terms2" (click)="goToDetail(event)">
+        <img src="{{event.image}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{event.title}}
+            </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngFor="let event of events | category : terms3" (click)="goToDetail(event)">
+          <img src="{{event.image}}"/>
+          <ion-card-content>
+            <ion-card-title>
+              {{event.title}}
+              </ion-card-title>
+          </ion-card-content>
+        </ion-card> -->
+  
+  </ion-content>
+  
+  <!-- <ion-content>
+    
+    <ion-card  (click)="goToDetail()">
+      <img src="../../assets/imgs/islandjam.jpg"/>
+      <ion-card-content>
+        <ion-card-title>
+          Island Jam GC
+          </ion-card-title> 2018
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card  (click)="goToDetail()">
+      <img src="../../assets/imgs/sdm.jpg"/>
+      <ion-card-content>
+        <ion-card-title>
+          Salón del Manga GC
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card  (click)="goToDetail()">
+      <img src="../../assets/imgs/fdc.jpg"/>
+      <ion-card-content>
+        <ion-card-title>
+          Nine Inch Nails Live
+          </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-content> -->
+  
+  

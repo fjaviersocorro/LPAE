@@ -1,15 +1,10 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="primary" id="top">
     <button ion-button menuToggle>
       <ion-icon color="secondary" name="menu"></ion-icon>
     </button>
-    <ion-buttons end>
-      <button *ngIf="true" color = "secondary" ion-button><ion-icon name="contact"></ion-icon></button>
-    </ion-buttons>
-
-    <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
-
-    
+   
+    <ion-title color="secondary">LPA<ion-icon color="secondary" name="pin" start></ion-icon>Events</ion-title>
 
   </ion-navbar>
 </ion-header>
@@ -19,13 +14,29 @@
 
 <ion-content>
   <ion-card *ngFor="let event of events" (click)="goToDetail(event)">
-    <img src="../../assets/imgs/islandjam.jpg"/>
+    <img src="{{event.image}}"/>
     <ion-card-content>
       <ion-card-title>
         {{event.title}}
         </ion-card-title>
     </ion-card-content>
   </ion-card>
+  <!-- <ion-card *ngFor="let event of events | category : terms2" (click)="goToDetail(event)">
+      <img src="{{event.image}}"/>
+      <ion-card-content>
+        <ion-card-title>
+          {{event.title}}
+          </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngFor="let event of events | category : terms3" (click)="goToDetail(event)">
+        <img src="{{event.image}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{event.title}}
+            </ion-card-title>
+        </ion-card-content>
+      </ion-card> -->
 
 </ion-content>
 

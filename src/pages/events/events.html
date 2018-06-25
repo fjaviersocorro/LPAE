@@ -9,15 +9,35 @@
     <button ion-button menuToggle>
       <ion-icon color="secondary" name="menu"></ion-icon>
     </button>
-    <ion-buttons end>
-      <button *ngIf="true" color = "secondary" ion-button><ion-icon name="contact"></ion-icon></button>
-    </ion-buttons>
-
+   
     <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
     
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  
+<ion-content >
+  <ion-navbar class="rounded"color="secondary">
+      <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+      <ion-buttons end>
+          <button ion-button type="button" (click)="sort()">Sort</button>
+      </ion-buttons>
+      
+  </ion-navbar>
+    
+    
+    <ion-list>
+        <ion-item class="rounded" *ngFor="let event of events | search:terms | sort: {property: column, order: order}" >
+          <ion-avatar item-start >
+              <img src="{{event.image}}"/>
+          </ion-avatar>
+          <h2 (click)="goToDetail(event)">{{event.title}}</h2>
+          <p>{{event.location}}</p>
+          <button ion-button  item-end color="secondary"(click)="editEvent(event)"><ion-icon name="create"></ion-icon></button>
+          <button ion-button  item-end color="secondary" (click)="deleteEvent(event)"><ion-icon name="trash"></ion-icon></button>
+        </ion-item>
+      </ion-list>
+      <ion-navbar transparent>
+          <button ion-button color="primary" (click)="goToNewEvent()" end><ion-icon name="add"></ion-icon></button>
+      </ion-navbar>
+      
 </ion-content>

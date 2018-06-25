@@ -3,10 +3,6 @@ page-events-detail {
         position: absolute;
         text-align: center;
     }
-    .content-md{
-        background-image: url('../../assets/imgs/lascanteras.jpg');
-        background-size:cover; 
-    }
     .card{
         background: rgba(rgb(255, 255, 255),0.7);
     }
@@ -19,4 +15,13 @@ page-events-detail {
     .toolbar-md-primary .bar-button-default-md{
         color: blue;
     }
+    ion-title {
+        //position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 1px 1px;
+        width: 80%;
+        height: 100%;
+        text-align: center;
+      }
 }

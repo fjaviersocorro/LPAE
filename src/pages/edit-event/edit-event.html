@@ -1,0 +1,80 @@
+<!--
+  Generated template for the NewEventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon color="secondary" name="menu"></ion-icon>
+    </button>
+
+    <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+<ion-navbar color="secondary" class="top-bar">
+  <ion-title>
+    Create Event
+  </ion-title>
+</ion-navbar>
+
+<form [formGroup]="myForm">
+  <ion-list>
+    <ion-item>
+      <ion-icon name="title"></ion-icon>
+      <ion-label stacked>Title:</ion-label>
+      <ion-input formControlName="title" type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="description"></ion-icon>
+      <ion-label stacked>Description:</ion-label>
+      <ion-input formControlName="description" type="text" placeholder="Description" [(ngModel)]="event.description"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="image"></ion-icon>
+        <ion-label stacked>ImageUrl:</ion-label>
+        <ion-input formControlName="image" type="textarea" placeholder="URL" [(ngModel)]="event.image"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-navbar color="primary">
+
+              <input type="file" color="white" ng2FileSelect name="file" id="file "[uploader]="uploader">
+              </ion-navbar>
+            <button (click)="uploadImage()" color ="secondary" ion-button>Create URL</button>
+            <cl-image [public-id]="imageId" [cloud-name]="uploader.cloudName"></cl-image>
+            
+      </ion-item>
+      <ion-item>
+          <ion-icon name="tag"></ion-icon>
+          <ion-label stacked>Tag:</ion-label>
+          <ion-input formControlName="tag" type="textarea" placeholder="teatro, literatura, deporte, etc." [(ngModel)]="event.tag"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="lat"></ion-icon>
+            <ion-label stacked>Latitude:</ion-label>
+            <ion-input formControlName="lat" type="textarea" placeholder="Latitude" [(ngModel)]="event.latitude"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-icon name="ln"></ion-icon>
+              <ion-label stacked>Longitude:</ion-label>
+              <ion-input formControlName="ln" type="textarea" placeholder="longitude" [(ngModel)]="event.longitude"></ion-input>
+            </ion-item>
+  </ion-list>
+  <div>
+    <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="save()">Save</button>
+  </div>
+</form>
+<ion-navbar color="secondary">
+    <div class="form-group">
+      <input id="search" placeholder=" Search..." autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+    </div>
+  </ion-navbar>
+    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom" >
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+</ion-content>

@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, Loading, LoadingController, 
+  NavController, NavParams, ToastController} from 'ionic-angular';
 
+import {AngularFireAuth} from "angularfire2/auth";
+import { User } from '../../models/user'
+import { RegisterPage } from '../register/register';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the LoginPage page.
  *
@@ -15,11 +20,59 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user = {} as User;
+  isUser={}
+  public loading: Loading;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private afAuth: AngularFireAuth,
+              public alertCtrl: AlertController,
+              public loadingCtrl: LoadingController,
+              private toast: ToastController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    this.afAuth.authState.subscribe(data => {
+        this.isUser=data;
+        if (data && data.email && data.uid) {
+          this.navCtrl.setRoot(HomePage);
+        }
+    });
   }
+  login(user: User) {
+    this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(() => {
+      this.navCtrl.setRoot(HomePage);
+      }, (err) => {
+      this.loading.dismiss().then( ()=>{
+        let alert = this.alertCtrl.create({
+          message: err.message,
+          buttons: [
+            {
+              text: "OK",
+              role: 'cancel'
+            }
+          ]
+        });
+        alert.present();
+      });
+      });
 
+    this.loading = this.loadingCtrl.create({
+      dismissOnPageChange: true,
+      });
+    this.loading.present();
+}
+
+
+logout() {
+  this.afAuth.auth.signOut();
+  this.navCtrl.setRoot(LoginPage)
+}
+
+SignUp() {
+  this.navCtrl.push(RegisterPage);
+}
+
+  
 }

@@ -5,14 +5,35 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar color="primary" id="top">
+    <button ion-button menuToggle>
+      <ion-icon color="secondary" name="menu"></ion-icon>
+    </button>
 
-  <ion-navbar>
-    <ion-title>profile</ion-title>
+    <ion-title color="secondary">LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list >
+    <button class="rounded" ion-item color="light">
+      <ion-icon name="contact" color="secondary"></ion-icon>
+      Change email
+    </button>
+    <button class="rounded" ion-item color="light">
+      <ion-icon name="finger-print" color="secondary"></ion-icon>
+      Change password
+    </button>  
+    <button class="rounded" ion-item color="light" (click)="goToFavorites()">
+        <ion-icon name="star" color="secondary"></ion-icon>
+      Favorites
+    </button>  
+    <button class="rounded" ion-item color="light" (click)="logout()">
+        <ion-icon name="exit" color="secondary"></ion-icon>
+        Logout
+    </button>  
+       
+  </ion-list>
 </ion-content>

@@ -34,10 +34,10 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #fac92c,
-  secondary:  blue,
+  primary:    rgb(250, 201, 44),
+  secondary:  #2f3272,
   danger:     #f53d3d,
-  light:      #f4f4f4,
+  light:      rgba(rgb(255, 255, 255),0.8),
   dark:       #222
 );
 
@@ -92,7 +92,7 @@ $colors: (
   text-align: center;
 }
 .content-md{
-  background-image: url('../../assets/imgs/lascanteras.jpg');
+  background-image: url('http://res.cloudinary.com/fjaviersocorro/image/upload/v1529250786/lascanteras.jpg');
   background-size:cover; 
 }
 

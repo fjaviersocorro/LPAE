@@ -3,17 +3,25 @@
 page-home {
     
    
-    .toolbar-title-md{
-        position: absolute;
-        text-align: center;
-        color:blue;
+    .toolbar-md-primary .toolbar-title-md {
+        color: #2f3272;
+        position:absolute;
     }
-    .content-md{
-        background-image: url('../../assets/imgs/lascanteras.jpg');
-        background-size:cover; 
-    }
+    
     .card{
         background: rgba(rgb(255, 255, 255),0.8);
     }
-    
+    img{
+        height:150px;
+    }
+    ion-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 1px 1px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      }
+      
 }

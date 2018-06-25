@@ -1,0 +1,40 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+      
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <div class="container">
+      <form [formGroup]="myForm">
+          <ion-list>
+            <ion-item class="rounded">
+              <ion-label stacked color="dark">User:</ion-label>
+              <ion-input formControlName="email" type="email" placeholder="mascanario@queelgofio.com" [(ngModel)]="user.email"></ion-input>
+            </ion-item>
+            <div formGroupName="passwordRetry">
+              <ion-item class="rounded">
+                <ion-label stacked color="dark">eMail:</ion-label>
+                <ion-input formControlName="password" type="password" placeholder="p4p4scC0nM0j0" [(ngModel)]="user.password"></ion-input>
+              </ion-item>
+              <ion-item class="rounded">
+                <ion-label stacked color="dark">Confirmar contraseña:</ion-label>
+                <ion-input formControlName="passwordConfirmation" type="password" placeholder="p4p4scC0nM0j0"></ion-input>
+              </ion-item>
+            </div>
+          </ion-list>
+          <div padding>
+            <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="register(user)">Guardar</button>
+          </div>
+        </form>
+  </div>
+    
+  </ion-content>

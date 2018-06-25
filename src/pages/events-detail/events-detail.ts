@@ -1,14 +1,7 @@
 import { Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormControl } from '@angular/forms';
-import { MapsAPILoader } from '@agm/core';
-import { GoogleMap, GoogleSymbol } from '@agm/core/services/google-maps-types';
 import { MapsPage } from '../maps/maps';
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
-import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { DbApiProvider} from '../../providers/db-api/db-api'
-
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the EventsDetailPage page.
@@ -24,16 +17,90 @@ import { DbApiProvider} from '../../providers/db-api/db-api'
 })
 export class EventsDetailPage {
   private event={};
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+  private events=[];
+  private favorite:boolean;
+  private pref:{
+    CYT:0,
+    ARTE:0,
+    DEPORTE:0,
+    OTROS:0
+  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
+  public preferences: Storage) {
+    if(this.pref==undefined){
+      this.pref={
+        CYT:0,
+        ARTE:0,
+        DEPORTE:0,
+        OTROS:0
+      }
+    }
   }
 
   ionViewDidLoad() {
     console.log(this.navParams.data.title);
     this.event = this.navParams.data;
+    this.isFav(this.event);
+    
   }
   goToMaps(event){
     this.navCtrl.push(MapsPage, event);
+  }
+  favoriteEvent(event){
+    console.log("event",event);
+    this.storage.set(event.id.toString(), event);
+    
+    this.storage.get( "preferences").then((value) => {
+      this.pref = value;
+    });
+    
+    console.log("PREFERNCES1");
+    console.log(this.pref);
+    
+    if(event.tag=="CYT"){
+      this.pref.CYT+=1;
+    }else{
+      if(event.tag=="ARTE"){
+        this.pref.ARTE+=1;
+      }else{
+        if(event.tag=="DEPORTE"){
+          this.pref.DEPORTE+=1;
+        }else{
+        
+            this.pref.OTROS+=1;
+         
+        }
+      }
+    }
+
+    this.storage.set("preferences", this.pref);
+    console.log("PREFERNCES2");
+    console.log(this.pref);
+
+    this.favorite=true;
+    this.getFavorite(event);
+
+  }
+  unfavoriteEvent(event){
+    this.storage.remove(event.id.toString());
+    this.favorite=false;
+    this.getFavorite(event);
+  }
+  getFavorite(event){
+    this.storage.get(event.id.toString()).then((val) => {
+      console.log("value is: " , val);
+    });
+    console.log("storage");
+    console.log(this.storage);
+  }
+  isFav(event) {
+    this.storage.get(event.id.toString()).then((value) => {
+      value ? this.favorite = true : this.favorite = false
+    }).catch(() => this.favorite = false);
+  }
+  clear(){
+    this.storage.forEach( (value, key, index) => {
+      this.storage.remove(key);
+    });
   }
 }

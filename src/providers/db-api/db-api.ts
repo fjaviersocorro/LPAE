@@ -11,11 +11,19 @@ import {AngularFireDatabase} from "angularfire2/database";
 @Injectable()
 export class DbApiProvider {
 
-  constructor(public http: HttpClient, private fb: AngularFireDatabase ) {
+  constructor(public http: HttpClient, private fb: AngularFireDatabase, private afDB: AngularFireDatabase ) {
     console.log('Hello DbApiProvider Provider');
   }
   getEvents():Observable<any> {
-    return this.fb.list('events').valueChanges();
+    return this.afDB.list('events').valueChanges();
   }
-
+  setNewEvent(event){
+    this.afDB.database.ref('events/' + event.id).set(event);
+  }
+  deleteEvent(event){
+    this.afDB.database.ref('events/' + event.id).remove();
+  }
+  editEvent(event){
+    this.afDB.database.ref('events/' + event.id).set(event)
+  }
 }

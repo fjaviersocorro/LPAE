@@ -5,14 +5,40 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+    
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding >
 
+  <div class="container">
+    <ion-list>
+    <ion-item class="rounded">
+    <ion-label stacked color="dark">User:</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email" placeholder="mascanario@queelgofio.com"></ion-input>
+  </ion-item>
+
+  <ion-item class="rounded">
+    <ion-label  stacked color="dark">Password:</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password" placeholder="p4p4scC0nM0j0"></ion-input>
+  </ion-item>
+    </ion-list>
+    
+
+
+  <ion-navbar transparent>
+      <button ion-button id="login" color="primary" (click)="login(user)">Login</button>
+      <ion-buttons end>
+          <button ion-button id="register "color="primary" (click)="SignUp()" outline item-start>Register</button>
+      </ion-buttons>
+      
+  </ion-navbar>
+    
+ 
+  </div>
+  
+    
 </ion-content>
