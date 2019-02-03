@@ -2,7 +2,7 @@ import { Component, ElementRef, NgZone, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import { DbApiProvider } from '../../providers/db-api/db-api'
+import { DbApiProvider } from '../../providers/db-api/db-api';
 import { EventsPage } from '../events/events';
 import { MapsAPILoader } from '@agm/core';
 
@@ -45,7 +45,6 @@ export class EditEventPage {
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
-
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public formBuilder: FormBuilder,
   private dbapi:DbApiProvider,  private mapsAPILoader: MapsAPILoader,

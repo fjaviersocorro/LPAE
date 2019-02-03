@@ -10,7 +10,7 @@
       <ion-icon color="secondary" name="menu"></ion-icon>
     </button>
 
-    <ion-title>LPA<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
+    <ion-title>LPGC<ion-icon color="secondary" name="pin"></ion-icon>Events</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -28,17 +28,17 @@
     <ion-item>
       <ion-icon name="title"></ion-icon>
       <ion-label stacked>Title:</ion-label>
-      <ion-input formControlName="title" type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
+      <ion-input formControlName="title" type="text" placeholder="Title" [(ngModel)]="navParams.data.title"></ion-input>
     </ion-item>
     <ion-item>
       <ion-icon name="description"></ion-icon>
       <ion-label stacked>Description:</ion-label>
-      <ion-input formControlName="description" type="text" placeholder="Description" [(ngModel)]="event.description"></ion-input>
+      <ion-input formControlName="description" type="text" placeholder="Description" [(ngModel)]="navParams.data.description"></ion-input>
     </ion-item>
     <ion-item>
         <ion-icon name="image"></ion-icon>
         <ion-label stacked>ImageUrl:</ion-label>
-        <ion-input formControlName="image" type="textarea" placeholder="URL" [(ngModel)]="event.image"></ion-input>
+        <ion-input formControlName="image" type="textarea" placeholder="URL" [(ngModel)]="navParams.data.image"></ion-input>
       </ion-item>
       <ion-item>
           <ion-navbar color="primary">
@@ -52,17 +52,17 @@
       <ion-item>
           <ion-icon name="tag"></ion-icon>
           <ion-label stacked>Tag:</ion-label>
-          <ion-input formControlName="tag" type="textarea" placeholder="teatro, literatura, deporte, etc." [(ngModel)]="event.tag"></ion-input>
+          <ion-input formControlName="tag" type="textarea" placeholder="teatro, literatura, deporte, etc." [(ngModel)]="navParams.data.tag"></ion-input>
         </ion-item>
         <ion-item>
             <ion-icon name="lat"></ion-icon>
             <ion-label stacked>Latitude:</ion-label>
-            <ion-input formControlName="lat" type="textarea" placeholder="Latitude" [(ngModel)]="event.latitude"></ion-input>
+            <ion-input formControlName="lat" type="textarea" placeholder="Latitude" [(ngModel)]="navParams.data.latitude"></ion-input>
           </ion-item>
           <ion-item>
               <ion-icon name="ln"></ion-icon>
               <ion-label stacked>Longitude:</ion-label>
-              <ion-input formControlName="ln" type="textarea" placeholder="longitude" [(ngModel)]="event.longitude"></ion-input>
+              <ion-input formControlName="ln" type="textarea" placeholder="longitude" [(ngModel)]="navParams.data.longitude"></ion-input>
             </ion-item>
   </ion-list>
   <div>

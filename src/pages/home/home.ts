@@ -9,6 +9,7 @@ import { NewEventPage } from '../new-event/new-event';
 import { LoginPage } from '../login/login';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ProfilePage } from '../profile/profile';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -17,12 +18,13 @@ import { ProfilePage } from '../profile/profile';
 })
 export class HomePage {
   events=[];
-  user={}
+  user={};
+  pref={};
   terms1="teatro";
   terms2="deporte";
   terms3="cine";
   constructor(public navCtrl: NavController, private dbapi:DbApiProvider,
-     private afAuth: AngularFireAuth, private toast: ToastController) {
+     private afAuth: AngularFireAuth, private toast: ToastController, public storage:Storage ) {
 
   }
   ionViewWillLoad(){
@@ -32,11 +34,24 @@ export class HomePage {
       // console.log(data.email);
       if (data && data.email && data.uid) {
 
-        
       }else{
         this.navCtrl.setRoot(LoginPage);
       }
     });
+    this.storage.get( "preferences").then(
+      (value) => {
+      console.log("value")  
+      console.log(value)
+      if(value!= undefined){
+        this.pref=value
+      }
+      console.log("pref")
+      console.log(this.pref)
+    });
+    // this.pref.forEach(element => {
+      
+    // });
+
     this.dbapi.getEvents().subscribe(
       (data)=> this.events = data
     );

@@ -27,14 +27,21 @@ export class EventsDetailPage {
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
   public preferences: Storage) {
-    if(this.pref==undefined){
-      this.pref={
-        CYT:0,
-        ARTE:0,
-        DEPORTE:0,
-        OTROS:0
+    
+    this.storage.get( "preferences").then((value) => {
+      this.pref = value;
+      if(value!=undefined){
+        this.pref=value
+      }else{
+        this.pref={
+          CYT:0,
+          ARTE:0,
+          DEPORTE:0,
+          OTROS:0
+        }
       }
-    }
+    });
+    
   }
 
   ionViewDidLoad() {
@@ -48,11 +55,11 @@ export class EventsDetailPage {
   }
   favoriteEvent(event){
     console.log("event",event);
-    this.storage.set(event.id.toString(), event);
     
-    this.storage.get( "preferences").then((value) => {
-      this.pref = value;
-    });
+    
+    // this.storage.get( "preferences").then((value) => {
+    //   this.pref = value;
+    // });
     
     console.log("PREFERNCES1");
     console.log(this.pref);
@@ -72,8 +79,8 @@ export class EventsDetailPage {
         }
       }
     }
-
-    this.storage.set("preferences", this.pref);
+    this.storage.set("preferences",this.pref);
+    this.storage.set(event.id.toString(), event);
     console.log("PREFERNCES2");
     console.log(this.pref);
 
@@ -102,5 +109,6 @@ export class EventsDetailPage {
     this.storage.forEach( (value, key, index) => {
       this.storage.remove(key);
     });
+    this.storage.remove("preferences");
   }
 }
