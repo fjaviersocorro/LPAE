@@ -30,7 +30,7 @@ plugins/ios.json
 www/
 src/keys.ts
 $RECYCLE.BIN/
-
+package-lock.json
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate

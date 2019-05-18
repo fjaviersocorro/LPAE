@@ -9,7 +9,7 @@ import { EventsDetailPage } from '../pages/events-detail/events-detail';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { AgmCoreModule } from '@agm/core';
-import { FullCalendarModule } from 'ng-fullcalendar';
+// import { FullCalendarModule } from 'ng-fullcalendar';
 import { HttpClientModule } from '@angular/common/http';
 import { CalendarModule } from 'ionic3-calendar-en';
 import { AngularFireModule } from 'angularfire2';
@@ -65,7 +65,7 @@ import { FavoritesPage } from '../pages/favorites/favorites';
     }),
     FormsModule,
     ReactiveFormsModule,
-    FullCalendarModule,
+    // FullCalendarModule,
     HttpClientModule,
     CalendarModule,
     AngularFireModule.initializeApp(FB_CONFIG,'lpae'),
